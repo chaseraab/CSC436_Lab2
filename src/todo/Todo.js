@@ -25,7 +25,6 @@ export default function Todo ({title, description, author, dateCreated}) {
                 <input type="checkbox" onClick={handleChange}></input>
             </div>
             <i>Date Completed: <b>{dateCompleted}</b></i><br/>
-            <p>Completed? {complete.toString()}</p>
             <hr></hr>
         </div>
         )
