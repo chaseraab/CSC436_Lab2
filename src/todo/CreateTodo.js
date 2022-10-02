@@ -14,7 +14,7 @@ export default function CreateTodo ({user, todos, setTodos}) {
                                     description,
                                     author: user,
                                     dateCreated: d,
-                                    //complete: false
+                                    complete: false
                                     };
                                 setTodos([newTodo, ...todos]);
                                 }}>

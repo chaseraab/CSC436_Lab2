@@ -13,7 +13,7 @@ function App() {
       description: "It smells",
       author: "Chase",
       dateCreated: Date(Date.now()),
-      //complete: false
+      complete: false
     },
     {
       id: uuid(),
@@ -21,7 +21,7 @@ function App() {
       description: "They're hungry",
       author: "Chase",
       dateCreated: Date(Date.now()),
-      //complete: false
+      complete: false
     }
   ]
 
