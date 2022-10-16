@@ -8,7 +8,7 @@ export default function CreateTodo ({user, todos, dispatch}) {
 
     return (
          <form onSubmit={e => {e.preventDefault(); 
-                                dispatch({type: "CREATE_TODO", title, description, author:user, dateCreated: d, dispatch:dispatch, complete: false})
+                                dispatch({type: "CREATE_TODO", id: uuid(), title, description, author:user, dateCreated: d, complete: false})
                                 }}>
             <div>Author: <b>{user}</b></div>
             <div>

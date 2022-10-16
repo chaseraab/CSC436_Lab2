@@ -14,10 +14,10 @@ function userReducer(state, action) {
     switch (action.type) {
       case "CREATE_TODO":
         const newPost = {
+          id: action.id,
           title: action.title,
           description: action.description,
           author: action.author,
-          dispatch: action.dispatch,
         };
         return [newPost, ...state];
       case "TOGGLE_TODO":
