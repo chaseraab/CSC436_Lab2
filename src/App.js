@@ -1,8 +1,11 @@
-import {useState} from 'react';
+import {useReducer} from 'react';
+
 import {v4 as uuid} from "uuid";
 import UserBar from "./user/UserBar";
 import TodoList from "./todo/TodoList";
 import CreateTodo from "./todo/CreateTodo";
+
+import appReducer from './Reducers';
 
 function App() {
 
@@ -25,14 +28,13 @@ function App() {
     }
   ]
 
-  const [user, setUser] = useState('')
-  const [todos, setTodos] = useState(initialTodos)
+  const [ state, dispatch ] = useReducer(appReducer, { user: '', todos: initialTodos })
 
     return (
       <div>
-        <UserBar user={user} setUser={setUser} />
-        <TodoList todos={todos} />
-        {user && <CreateTodo user={user} todos={todos} setTodos={setTodos}/>}
+        <UserBar user={state.user} dispatch={dispatch} />
+        <TodoList todos={state.todos} />
+        {state.user && <CreateTodo user={state.user} todos={state.todos} dispatch={dispatch}/>}
       </div>
     )
 }
