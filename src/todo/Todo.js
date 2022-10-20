@@ -1,19 +1,17 @@
 import {useState} from 'react';
-import { todosReducer } from '../Reducers';
 export default function Todo ({title, description, author, dateCreated, dispatch, id}) {
            
     const [dateCompleted, setDateCompleted] = useState(null);
     const [complete, setCompleted] = useState(false);
-   
 
-    const handleChange = () => {
-        setCompleted(!complete);
-        if (!complete) {
-            setDateCompleted(Date(Date.now()))
-        } else {
-            setDateCompleted(null)
-        }
-    }
+    // const handleChange = () => {
+    //     setCompleted(!complete);
+    //     if (!complete) {
+    //         setDateCompleted(Date(Date.now()))
+    //     } else {
+    //         setDateCompleted(null)
+    //     }
+    // }
 
   
     return (

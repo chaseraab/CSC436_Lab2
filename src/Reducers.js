@@ -1,5 +1,3 @@
-import { isValidDateValue } from "@testing-library/user-event/dist/utils";
-
 function userReducer(state, action) {
     switch (action.type) {
       case "LOGIN":
@@ -23,11 +21,25 @@ function userReducer(state, action) {
         };
         return [newTodo, ...state];
       case "TOGGLE_TODO":
-          console.log("Toggle!");
-          const index = state.findIndex(todo => todo.id === action.id)
-          var newArray = state
-          newArray[index].dateCompleted = Date(Date.now());
-          return newArray
+        console.log("Toggle!");
+        const index = state.findIndex(todo => todo.id === action.id)
+        var newArray = state
+        console.log(newArray[index])
+        console.log(newArray[index].complete)
+        // if (newArray[index].complete === true) {
+        //   console.log("Currently true")
+        //   newArray[index].dateCompleted = null;
+        //   newArray[index].complete = false;
+        // } else {
+        //   console.log("Currently false")
+        //   newArray[index].dateCompleted = Date(Date.now());
+        //   newArray[index].complete = true;
+        // }
+        newArray[index].dateCompleted = Date(Date.now());
+        newArray[index].complete = true;
+        console.log(newArray[index])
+        console.log(newArray[index].complete)
+        return newArray
       case "DELETE_TODO":
           return state.filter(todo => todo.id !== action.id);
       default:
