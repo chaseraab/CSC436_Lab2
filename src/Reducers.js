@@ -1,3 +1,5 @@
+import { isValidDateValue } from "@testing-library/user-event/dist/utils";
+
 function userReducer(state, action) {
     switch (action.type) {
       case "LOGIN":
@@ -10,23 +12,42 @@ function userReducer(state, action) {
     }
   }
 
-  function todosReducer(state, action) {
+  export function todosReducer(state, action) {
     switch (action.type) {
       case "CREATE_TODO":
-        const newPost = {
+        const newTodo = {
           id: action.id,
           title: action.title,
           description: action.description,
           author: action.author,
         };
-        return [newPost, ...state];
+        return [newTodo, ...state];
       case "TOGGLE_TODO":
           console.log("Toggle!");
-          return state;
+          const index = state.findIndex(todo => todo.id !== action.id);
+          //console.log(index)
+          var value = state[index];
+          const tempTodo = {
+            id: value.id,
+            title: value.title,
+            description: value.description,
+            author: value.author,
+            dateCompleted: Date(Date.now())
+          }
+          //console.log(value)
+          var arrayBefore;
+          if (index === 0) {arrayBefore = [];} else {
+            arrayBefore = state.slice(0, index)
+          }
+          //console.log(arrayBefore)
+          arrayBefore = arrayBefore.concat(tempTodo)
+          //console.log("Array values")
+          //console.log(arrayBefore)
+          var arrayAfter = state.slice(index + 1)
+          console.log(arrayBefore.concat(arrayAfter))
+          return arrayBefore.concat(arrayAfter)
       case "DELETE_TODO":
-          console.log("Delete");
-          return state;
-        //return state.filter(todo => todo !== action.todo);
+          return state.filter(todo => todo.id !== action.id);
       default:
         return state;
     }
