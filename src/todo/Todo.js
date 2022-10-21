@@ -1,17 +1,4 @@
-import {useState} from 'react';
-export default function Todo ({title, description, author, dateCreated, dispatch, id}) {
-           
-    const [dateCompleted, setDateCompleted] = useState(null);
-    const [complete, setCompleted] = useState(false);
-
-    // const handleChange = () => {
-    //     setCompleted(!complete);
-    //     if (!complete) {
-    //         setDateCompleted(Date(Date.now()))
-    //     } else {
-    //         setDateCompleted(null)
-    //     }
-    // }
+export default function Todo ({title, description, author, dateCreated, dispatch, id, complete, dateCompleted}) {
 
   
     return (
@@ -23,7 +10,7 @@ export default function Todo ({title, description, author, dateCreated, dispatch
             <i>Date Created: <b>{dateCreated}</b></i><br/>
             <div>
                 <label>Completed: </label>
-                <input type="checkbox" onClick={() => dispatch({type: "TOGGLE_TODO", id})}></input>
+                <input type="checkbox" onClick={() => dispatch({type: "TOGGLE_TODO", id})} value={complete}></input>
             </div>
             <i>Date Completed: <b>{dateCompleted}</b></i><br/>
             <button onClick={() => dispatch({type: "DELETE_TODO", id})}>DELETE</button>
