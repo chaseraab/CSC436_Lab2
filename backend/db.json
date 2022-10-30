@@ -1,0 +1,49 @@
+{
+  "todos": [
+    {
+      "title": "Post 1",
+      "description": "body\n",
+      "author": "chase@chase.com",
+      "dateCreated": "Sun Oct 30 2022 13:57:28 GMT-0500 (Central Daylight Time)",
+      "dateCompleted": null,
+      "id": "f15209fd-db75-4c80-ac1a-ad0447cdcd67"
+    },
+    {
+      "title": "Post 2",
+      "description": "body\n",
+      "author": "chase@chase.com",
+      "dateCreated": "Sun Oct 30 2022 13:57:33 GMT-0500 (Central Daylight Time)",
+      "dateCompleted": null,
+      "id": "f0c46097-b211-41c7-911c-802843cf74b5"
+    }
+  ],
+  "users": [
+    {
+      "email": "craab@chase.com",
+      "password": "$2a$10$CYvduM7E2TpLJq.xlkGLfOn1q52VPHQiwgjBLzTLA1LvgT2D.os1G",
+      "id": 1
+    },
+    {
+      "email": "chase@chase.com",
+      "password": "$2a$10$ZqGecmSGnXb2EA81X3W5L.u0SFmQchU66QMzetn4AVLd4eHNSvnfe",
+      "id": 2
+    },
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$3QKY7eqPj5S4UnptAXQv9uEtF1dVFXHhZ2JYDrMIbSuy5qHS2k5d2",
+      "id": 3
+    },
+    {
+      "email": "asdf@asdf.com",
+      "password": "$2a$10$6DKP04xLl4g2P4apPJMZPeaiPPBlmlxBSKVGSdRMaYOiLmKgTPbM2",
+      "id": 4
+    }
+  ],
+  "themes": [
+    {
+      "id": 1,
+      "primaryColor": "deepskyblue",
+      "secondaryColor": "coral"
+    }
+  ]
+}
