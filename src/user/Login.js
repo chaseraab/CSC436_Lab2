@@ -1,7 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react';
+import {StateContext} from '../contexts';
 
-function Login({dispatch}) {
+function Login() {
     const [username, setUsername] = useState('')
+    const {dispatch} = useContext(StateContext);
 
     return (
          <form onSubmit={e => {e.preventDefault(); dispatch({type: "LOGIN", username})}}>

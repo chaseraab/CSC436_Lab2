@@ -1,12 +1,17 @@
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import {v4 as uuid} from "uuid";
-import AlterTodo from './AlterTodo';
-export default function CreateTodo ({user, todos, dispatch}) {
+
+import { StateContext } from '../contexts';
+
+export default function CreateTodo () {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     var d = Date(Date.now());
 
+    const {state, dispatch} = useContext(StateContext)
+    const {user} = state;
+;
     return (
          <form onSubmit={e => {e.preventDefault(); 
                                 dispatch({type: "CREATE_TODO", id: uuid(), title, description, author:user, dateCreated: d, complete: false});

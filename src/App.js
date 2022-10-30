@@ -7,6 +7,8 @@ import CreateTodo from "./todo/CreateTodo";
 
 import appReducer from './Reducers';
 
+import {StateContext} from './contexts';
+
 function App() {
 
   const initialTodos = [
@@ -32,9 +34,11 @@ function App() {
 
     return (
       <div>
-        <UserBar user={state.user} dispatch={dispatch} />
-        <TodoList todos={state.todos} dispatch={dispatch}/>
-        {state.user && <CreateTodo user={state.user} todos={state.todos} dispatch={dispatch}/>}
+        <StateContext.Provider value={{state, dispatch}}>
+        <UserBar/>
+        <TodoList/>
+        {state.user && <CreateTodo/>}
+        </StateContext.Provider>
       </div>
     )
 }

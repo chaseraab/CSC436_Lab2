@@ -18,6 +18,7 @@ function userReducer(state, action) {
           title: action.title,
           description: action.description,
           author: action.author,
+          dateCreated: action.dateCreated,
         };
         return [newTodo, ...state];
       case "TOGGLE_TODO":
@@ -31,7 +32,6 @@ function userReducer(state, action) {
           }
           return todo;
         })
-        //return newArray
       case "DELETE_TODO":
           return state.filter(todo => todo.id !== action.id);
       default:
