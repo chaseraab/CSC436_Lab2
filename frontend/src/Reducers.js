@@ -26,8 +26,8 @@ function userReducer(state, action) {
           if (todo.id === action.id) {
             return {
               ...todo,
-              dateCompleted: todo.dateCompleted ? null : Date(Date.now()),
-              complete: true,
+              dateCompleted: action.dateCompleted,
+              complete: action.complete,
             };
           }
           return todo;

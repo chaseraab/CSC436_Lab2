@@ -6,6 +6,7 @@
       "author": "chase@chase.com",
       "dateCreated": "Sun Oct 30 2022 13:57:28 GMT-0500 (Central Daylight Time)",
       "dateCompleted": null,
+      "complete": false,
       "id": "f15209fd-db75-4c80-ac1a-ad0447cdcd67"
     },
     {
@@ -14,6 +15,7 @@
       "author": "chase@chase.com",
       "dateCreated": "Sun Oct 30 2022 13:57:33 GMT-0500 (Central Daylight Time)",
       "dateCompleted": null,
+      "complete": false,
       "id": "f0c46097-b211-41c7-911c-802843cf74b5"
     }
   ],
@@ -37,6 +39,11 @@
       "email": "asdf@asdf.com",
       "password": "$2a$10$6DKP04xLl4g2P4apPJMZPeaiPPBlmlxBSKVGSdRMaYOiLmKgTPbM2",
       "id": 4
+    },
+    {
+      "email": "test@test.net",
+      "password": "$2a$10$YKxQVt9vjUAB/mEgNmLVu.Ee4rlHribUetBJmq7mizyibct3.SBuq",
+      "id": 5
     }
   ],
   "themes": [
