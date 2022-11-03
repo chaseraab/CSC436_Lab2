@@ -13,7 +13,7 @@ export default function Todo ({title, description, author, dateCreated, dispatch
         
         url: '/todos/' + id,
         method: 'PUT',
-        data: {title: title, description: description, author: author, dateCreated: dateCreated, dateCompleted: dateCompleted}
+        data: {title: title, description: description, author: author, dateCreated: dateCreated, dateCompleted: dateCompleted, complete}
     }));
 
     function handleDelete (id) {
@@ -33,7 +33,7 @@ export default function Todo ({title, description, author, dateCreated, dispatch
         complete = !complete
         console.log(complete)
         updateTodo(id, title, description, author, dateCreated, complete, dateCompleted)
-        dispatch({type:"TOGGLE_TODO", id})
+        dispatch({type:"TOGGLE_TODO", id, dateCompleted, complete})
     }
 
     return (
@@ -45,7 +45,7 @@ export default function Todo ({title, description, author, dateCreated, dispatch
             <i>Date Created: <b>{dateCreated}</b></i><br/>
             <div>
                 <label>Completed: </label>
-                <input type="checkbox" onClick={() => handleToggle(id, title, description, author, dateCreated, complete)} value={complete}></input>
+                <input type="checkbox" checked={complete} onClick={() => handleToggle(id, title, description, author, dateCreated, complete)} value={complete}></input>
             </div>
             <i>Date Completed: <b>{dateCompleted}</b></i><br/>
             <button onClick={() => handleDelete(id)}>DELETE</button>
