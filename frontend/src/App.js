@@ -1,4 +1,4 @@
-import {useReducer, useEffect} from 'react';
+import {useReducer, useEffect, useState} from 'react';
 import { useResource } from 'react-request-hook'
 import UserBar from "./user/UserBar";
 import TodoList from "./todo/TodoList";
@@ -29,27 +29,40 @@ function App() {
     // }
   ]
 
+  const [ state, dispatch ] = useReducer(appReducer, { user: '', todos: initialTodos })
+
+  // const [ todos, getTodos ] = useResource(() => ({
+  //   url: '/todos',
+  //   method: 'get'
+  // }))
+
+  // useEffect(getTodos, [])
+
   // useEffect(() => {
-  //   fetch('/api/todos')
-  //          .then(result => result.json())
-  //          .then(todos => dispatch({ type: 'FETCH_TODOS', todos }))
-  //   }, [])
+  //   if (todos && todos.data) {
+  //       dispatch({ type: 'FETCH_TODOS', todos: todos.data.reverse() })
+  //   }
+  // }, [todos])
 
-  const [ todos, getTodos ] = useResource(() => ({
-    url: '/todos',
-    method: 'get'
-  }))
+  const [todos, getTodos] = useResource(() => ({
+    url: "/todo",
+    method: "get",
+    headers: { Authorization: `${state?.user?.access_token}` },
+    }));
 
-  useEffect(getTodos, [])
+    useEffect(() => {
+      getTodos();
+    }, [state?.user?.access_token]);
 
-  useEffect(() => {
-    if (todos && todos.data) {
-        dispatch({ type: 'FETCH_TODOS', todos: todos.data.reverse() })
+    useEffect(() => {
+    if (todos && todos.isLoading === false && todos.data) {
+      dispatch({ type: "FETCH_TODOS", todos: todos.data.todos.reverse() });
     }
-  }, [todos])
+    }, [todos]);
+    
  
 
-  const [ state, dispatch ] = useReducer(appReducer, { user: '', todos: initialTodos })
+  
 
     return (
       <div>

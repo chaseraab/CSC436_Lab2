@@ -10,13 +10,13 @@
       "id": "f15209fd-db75-4c80-ac1a-ad0447cdcd67"
     },
     {
-      "title": "Post 2",
-      "description": "body\n",
+      "title": "Feed the cats",
+      "description": "They're hungry",
       "author": "chase@chase.com",
-      "dateCreated": "Sun Oct 30 2022 13:57:33 GMT-0500 (Central Daylight Time)",
-      "dateCompleted": null,
-      "complete": false,
-      "id": "f0c46097-b211-41c7-911c-802843cf74b5"
+      "dateCreated": "Sat Nov 05 2022 09:06:03 GMT-0500 (Central Daylight Time)",
+      "dateCompleted": "Sat Nov 05 2022 09:06:08 GMT-0500 (Central Daylight Time)",
+      "complete": true,
+      "id": "081de977-1e0c-4a45-bda0-f348dcc5f834"
     }
   ],
   "users": [

@@ -12,19 +12,27 @@ export default function CreateTodo () {
     const {state, dispatch} = useContext(StateContext)
     const {user} = state;
 
-    const [post , createTodo ] = useResource(({ title, description, author, id, dateCreated, complete}) => ({
-        url: '/todos',
+    // const [post , createTodo ] = useResource(({ title, description, author, id, dateCreated, complete}) => ({
+    //     url: '/todos',
+    //     method: 'post',
+    //     data: { title, description, author, id, dateCreated, complete}
+    // }));
+
+    const [post , createTodo ] = useResource(({ title, description, author, id, dateCreated, complete }) => ({
+        url: '/todo',
         method: 'post',
-        data: { title, description, author, id, dateCreated, complete}
-    }));
+        headers: {"Authorization": `${state.user.access_token}`},
+        data: { title, description, id, dateCreated, complete}
+    }))
+        
 
     return (
          <form onSubmit={e => {e.preventDefault(); 
-                                const temp_id = uuid();
-                                createTodo({title, description, author:user, id:temp_id, dateCreated:d, complete:false});
-                                dispatch({type: "CREATE_TODO", id: temp_id, title, description, author:user, dateCreated: d, complete: false});
+                                const temp_id =  uuid();
+                                createTodo({title, description, author:user.username, id:temp_id, dateCreated:d, complete:false});
+                                dispatch({type: "CREATE_TODO", id: temp_id, title, description, author:user.username, dateCreated: d, complete: false});
                                 }}>
-            <div>Author: <b>{user}</b></div>
+            <div>Author: <b>{user.username}</b></div>
             <div>
                 <label htmlFor="create-title">Title:</label>
                 <input type="text" name="create-title" id="create-title" value={title} onChange={(event) => setTitle(event.target.value)}/>
